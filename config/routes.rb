@@ -9,6 +9,21 @@ class DomainConstraints
 end
 
 Rails.application.routes.draw do
+  constraints DomainConstraints.new("szukaj.pl", "szkuaj.pl") do
+    get "/", to: "search#index"
+  end
+
+  constraints DomainConstraints.new("kino.pl", "kyno.pl") do
+    get "/", to: "cinema#index"
+    get "/movies/:movie_id/showtimes/:showtime", to: "cinema#showtime"
+  end
+
+  constraints DomainConstraints.new("gateway.com") do
+    get "/payment", to: "payments/gateway#payment"
+    get "/success", to: "payments/gateway#success"
+    post "/process_payment", to: "payments/gateway#process_payment"
+  end
+
   root to: "home#index"
 
   resources :avatars
@@ -22,18 +37,4 @@ Rails.application.routes.draw do
 
   get "/login" => "sessions#new", as: :login
   delete "/logout" => "sessions#destroy", as: :logout
-
-  constraints DomainConstraints.new("szukaj.pl", "szkuaj.pl") do
-    get "/", to: "search#index"
-  end
-
-  constraints DomainConstraints.new("kino.pl", "kyno.pl") do
-    get "/", to: "cinema#index"
-  end
-
-  constraints DomainConstraints.new("gateway.com") do
-    get "/payment", to: "payments/gateway#payment"
-    get "/success", to: "payments/gateway#success"
-    post "/process_payment", to: "payments/gateway#process_payment"
-  end
 end

@@ -7,6 +7,11 @@ module Cinema
     API_KEY = ENV["TMDB_API_KEY"]
     BASE_URL = "https://api.themoviedb.org/3"
 
+    def movie(movie_id)
+      url = make_url("/movie/#{movie_id}")
+      get_json(url)
+    end
+
     def movies(params = {})
       date_from = Time.zone.today - 2.weeks
       date_to = Time.zone.today

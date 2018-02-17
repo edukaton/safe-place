@@ -2,10 +2,23 @@ h1 Witamy w naszym kinie!
 
 h2 Teraz na ekranach
 
+ul
+  - @days.each do |day|
+    li= link_to(l(day, format: :short), root_path(date: day))
+
 - @movies.each do |movie|
   table
+    colgroup
+      col
+      col
+      col width=200
     tr
       td= image_tag(movie.image, alt: movie.title, width: 200)
       td
         h3= movie.title
         p= movie.description
+      td
+        ul
+          - @showtimes.sample(5).sort.each do |showtime|
+            li= link_to(l(showtime, format: :hour), "/movies/#{movie.id}/showtimes/#{showtime.to_i}")
+
