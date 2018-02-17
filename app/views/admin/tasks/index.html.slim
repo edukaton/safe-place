@@ -1,0 +1,8 @@
+h1 Zadania
+
+= link_to "Dodaj", new_admin_task_path
+
+- @tasks.each do |task|
+  p
+    = task.title
+    = link_to "Edytuj", edit_admin_task_path(task)

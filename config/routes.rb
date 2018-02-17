@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   resources :sessions
   resources :tasks
 
+  namespace :admin do
+    resources :tasks
+  end
+
   get "/login" => "sessions#new", as: :login
   delete "/logout" => "sessions#destroy", as: :logout
 

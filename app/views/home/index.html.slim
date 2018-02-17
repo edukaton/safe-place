@@ -31,9 +31,10 @@ h1 SafePlace
 
   p Twoje zadania
   table
-    tr
-      td Bilet do kina
-      td= link_to "Przejdź do zadania", task_path(1)
+    - @tasks.each do |task|
+      tr
+        td= task.title
+        td= link_to "Przejdź do zadania", task_path(task.id)
 - else
   = link_to "Zaloguj się", login_path
   = link_to "Dołącz do klasy", new_avatar_path
