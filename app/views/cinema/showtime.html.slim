@@ -1,1 +1,10 @@
-h1 Showtime
+h1= @movie.title
+h2= l(@showtime, format: :short)
+
+h3 Wybór miejsc
+
+= form_tag do
+  - rows = (1..20).map { |r| ["Rząd #{r}", r] }
+  - places = (1..30).map { |p| ["Miejsce #{p}", p] }
+  = select_tag "row", options_for_select(rows)
+  = select_tag "place", options_for_select(places)
