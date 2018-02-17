@@ -3,3 +3,19 @@ h1 Klasa #{@classroom.name}
 Twoja klasa jest gotowa. Podaj poniższy kod swoim uczniom
 
 pre= @classroom.code
+
+Uczniowie
+
+table
+  thead
+    tr
+      th Uczeń
+      th Zadanie
+      th Wynik
+      th Status
+  - @participations.each do |participation|
+    tr
+      td= participation.avatar.full_name
+      td= participation.task.title
+      td= participation.completed? ? "Zakończone" : "W trakcie"
+      td= participation.status.nil? ? "n/a" : participation.status

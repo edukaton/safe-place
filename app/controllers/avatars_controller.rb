@@ -29,6 +29,15 @@ class AvatarsController < ApplicationController
       )
 
       @avatar.save
+      tasks = Task.all
+      tasks.each do |task|
+        Participation.create(
+          avatar_id: @avatar.id,
+          classroom_id: @classroom.id,
+          task_id: task.id
+        )
+      end
+
       cookies[:avatar_id] = @avatar.id
 
       redirect_to root_path

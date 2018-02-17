@@ -23,5 +23,6 @@ class ClassroomsController < ApplicationController
 
   def show
     @classroom = Classroom.find_by(code: params[:id])
+    @participations = Participation.where(classroom_id: @classroom.id)
   end
 end

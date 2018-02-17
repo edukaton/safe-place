@@ -31,10 +31,11 @@ h1 SafePlace
 
   p Twoje zadania
   table
-    - @tasks.each do |task|
+    - @participations.each do |participation|
       tr
-        td= task.title
-        td= link_to "Przejdź do zadania", task_path(task.id)
+        td= participation.task.title
+        td= participation.completed? ? "Zakończone" : "W trakcie"
+        td= link_to "Przejdź do zadania", task_path(participation.task.id)
 - else
   = link_to "Zaloguj się", login_path
   = link_to "Dołącz do klasy", new_avatar_path

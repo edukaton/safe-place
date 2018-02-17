@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     if logged_in?
-      @tasks = Task.all
+      @participations = Participation.where(avatar_id: current_avatar.id)
     end
   end
 end
