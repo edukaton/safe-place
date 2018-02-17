@@ -1,1 +1,12 @@
 h1 Wyszukiwajka
+
+= form_tag "/", method: :get do
+  = text_field_tag "q", @query, id: "query"
+
+- @results.each do |result|
+  div
+    h2= link_to(result.title, result.url)
+    p= result.description
+
+javascript:
+  document.getElementById('query').focus();
