@@ -1,0 +1,17 @@
+h1 Zapłać kartą
+
+= form_tag "/process_payment" do
+  p
+    | Numer karty
+    = text_field_tag :card_number
+  
+  p
+    | CVV
+    = text_field_tag :card_cvv
+
+  p
+    | Data ważności
+    = text_field_tag :card_expire_date
+
+  p
+    = submit_tag "Zapłać"
