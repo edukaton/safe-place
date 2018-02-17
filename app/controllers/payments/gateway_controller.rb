@@ -1,5 +1,7 @@
 module Payments
   class GatewayController < ApplicationController
+    layout "payments"
+
     def payment
     end
 

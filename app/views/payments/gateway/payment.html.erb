@@ -1,0 +1,75 @@
+<h1>Potwierdzenie płatności</h1>
+  <form name="" method="POST" action="rejestracja.php">
+  <div class="registration-form" id="dane">
+      <h2>Dane karty</h2>
+
+      <div class="field pl_only">
+          <div class="label">
+              <label for="">Imię i nazwisko <em>*</em></label>
+          </div>
+          <div class="input">
+              <input type="text" name="full_name" value="" class="small  txt" autocomplete="off" maxlength="14">
+          </div>
+          <div class="clearfix"></div>
+      </div>
+
+      <div class="field">
+        <div class="label">
+          <label for="">Numer karty <em>*</em></label>
+        </div>
+        <div class="input">
+          <input type="text" name="card_number" value="" class=" txt" maxlength="50" autocomplete="off">
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="field pl_only">
+        <div class="label">
+          <label for="">CVV <em>*</em></label>
+        </div>
+        <div class="input">
+          <input type="text" name="card_cvv" value="" class="small  txt" autocomplete="off">
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="field pl_only krs">
+          <div class="label">
+              <label for="">Data ważności <em>*</em></label>
+          </div>
+          <div class="input">
+              <input type="text" name="card_expire_date" value="" class="small  txt" autocomplete="off">
+              <noscript>
+                  <div class="clearfix"></div>
+                  <small>Dla działalności jednoosobowej oraz spółki cywilnej pole nie jest wymagane.</small>
+              </noscript>
+          </div>
+          <div class="clearfix"></div>
+      </div>
+  </div>
+  <div class="registration-form" id="akceptacja">
+      <div class="field ">
+        <input type="checkbox" name="agreement_bill" value="true" id="agreement_bill" >
+        <label for="agreement_bill">
+          <b>Tak</b>, zgodnie z ustawą z dnia 29 sierpnia 1997 r. o ochronie danych osobowych (Dz. U. Nr 133,poz. 883) wypełniając ten formularz wyrażam zgodę na przetwarzanie moich danych osobowych i wykorzystanie ich na potrzeby realizacji Umowy przez PayPro SA z siedzibą w Poznaniu.<em>*</em>
+        </label>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="buttons">
+        <div class="button-prev">
+          <a href="#sklepy">wstecz</a>
+        </div>
+        <div class="button-next">
+          <button type="submit" id="submit">
+            Zapłać
+          </button>
+        </div>
+      </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <p class="pull-right">
+      <span><em>*</em> - pola oznaczone gwiazdką są wymagane.</span>
+  </p>

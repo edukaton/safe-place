@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     get "/", to: "cinema#index"
   end
 
-  constraints DomainConstraints.new("payu.pl") do
+  constraints DomainConstraints.new("gateway.com") do
     get "/payment", to: "payments/gateway#payment"
     get "/success", to: "payments/gateway#success"
     post "/process_payment", to: "payments/gateway#process_payment"
