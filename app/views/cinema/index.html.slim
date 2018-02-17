@@ -1,1 +1,11 @@
 h1 Witamy w naszym kinie!
+
+h2 Teraz na ekranach
+
+- @movies.each do |movie|
+  table
+    tr
+      td= image_tag(movie.image, alt: movie.title, width: 200)
+      td
+        h3= movie.title
+        p= movie.description
