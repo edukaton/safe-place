@@ -28,6 +28,12 @@ h1 SafePlace
     tr
       td CVV
       td= current_avatar.card_cvv
+
+  p Twoje zadania
+  table
+    tr
+      td Bilet do kina
+      td= link_to "Przejdź do zadania", task_path(1)
 - else
   = link_to "Zaloguj się", login_path
   = link_to "Dołącz do klasy", new_avatar_path

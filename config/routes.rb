@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :avatars
   resources :classrooms
   resources :sessions
+  resources :tasks
 
   get "/login" => "sessions#new", as: :login
   delete "/logout" => "sessions#destroy", as: :logout
