@@ -21,7 +21,8 @@ class RandomData
       card_number: sample_card_number(gender),
       card_cvv: sample_card_cvv(gender),
       card_expire_month: sample_card_expire_month(gender),
-      card_expire_year: sample_card_expire_year(gender)
+      card_expire_year: sample_card_expire_year(gender),
+      pesel: sample_pesel(gender)
     }
   end
 
@@ -80,6 +81,15 @@ class RandomData
 
   def sample_card_expire_year(gender)
     Time.zone.now.year + rand(5) + 1
+  end
+
+  def sample_pesel(gender)
+    year_start = Time.zone.now.year - 16
+    year_end = Time.zone.now.year - 12
+    birthday = (Date.new(year_start, 1, 1)..Date.new(year_end, 1, 1)).to_a.sample
+    rpg = Rpg::Pesel.new(gender: gender, date: birthday)
+
+    rpg.generate
   end
 
   def load_cities

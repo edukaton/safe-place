@@ -1,8 +1,33 @@
 h1 SafePlace
 
 - if logged_in?
-  = current_avatar.full_name
-  = link_to "Wyloguj się", logout_path, method: :delete, data: { confirm: "Na pewno?" }
+  h2
+    = current_avatar.full_name
+    = " (#{current_avatar.code})"
+    = link_to "Wyloguj się", logout_path, method: :delete, data: { confirm: "Na pewno?" }, class: "right"
+
+  p Twoje dane:
+  table
+    tr
+      td Adres
+      td
+        = current_avatar.address
+        br
+        = current_avatar.postal_code
+        |, 
+        = current_avatar.city
+    tr
+      td Pesel
+      td= current_avatar.pesel
+    tr
+      td Numer karty
+      td= current_avatar.card_number
+    tr
+      td Data ważności
+      td #{sprintf("%02d", current_avatar.card_expire_month)} / #{current_avatar.card_expire_year}
+    tr
+      td CVV
+      td= current_avatar.card_cvv
 - else
   = link_to "Zaloguj się", login_path
   = link_to "Dołącz do klasy", new_avatar_path
