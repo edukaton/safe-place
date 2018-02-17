@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "activerecord-import"
 gem "slim"
 gem 'jquery-rails'
 gem 'pg', '~> 0.15'
