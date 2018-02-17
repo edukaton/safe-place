@@ -1,1 +1,8 @@
-h1 Welcome to Edukaton
+h1 SafePlace
+
+- if logged_in?
+  = current_avatar.full_name
+  = link_to "Wyloguj się", logout_path, method: :delete, data: { confirm: "Na pewno?" }
+- else
+  = link_to "Zaloguj się", login_path
+  = link_to "Dołącz do klasy", new_avatar_path

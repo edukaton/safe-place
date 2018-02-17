@@ -1,0 +1,13 @@
+= form_tag avatars_path do
+  p
+    | Kod klasy
+    = text_field_tag :classroom_code
+  p
+    = radio_button_tag :gender, "male"
+    | Chłopak
+
+  p
+    = radio_button_tag :gender, "female"
+    | Dziewczyna
+
+  = submit_tag "Utwórz"
