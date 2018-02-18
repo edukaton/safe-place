@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get "/", to: "cinema#index"
     get "/movies/:movie_id/showtimes/:showtime", to: "cinema#showtime"
     post "/buy_ticket", to: "cinema#buy_ticket"
+    post "/register", to: "cinema#register"
     get "/confirm_ticket/:id", to: "cinema#confirm_ticket"
   end
 

@@ -1,0 +1,35 @@
+= form_tag "/buy_ticket" do
+  = hidden_field_tag "movie_id", params[:movie_id]
+  = hidden_field_tag "showtime", params[:showtime]
+  = hidden_field_tag "row", params[:row]
+  = hidden_field_tag "place", params[:place]
+  table
+    tr
+      td= label_tag "Imię"
+      td= text_field_tag "name"
+    tr
+      td= label_tag "Nazwisko"
+      td= text_field_tag "surname"
+    tr
+      td= label_tag "E-mail"
+      td= text_field_tag "email"
+    tr
+      td= label_tag "Adres"
+      td= text_field_tag "address"
+    tr
+      td= label_tag "Miasto"
+      td= text_field_tag "city"
+    tr
+      td= label_tag "Kod pocztowy"
+      td= text_field_tag "postal_code"
+    tr
+      td= label_tag "Telefon"
+      td= text_field_tag "phone"
+    tr
+      td= label_tag "PESEL"
+      td= text_field_tag "postal_code"
+    tr
+      td colspan=2
+        small W przypadku osób niepełnoletnich prosimy podać dane opiekuna.
+  br
+  = submit_tag "Zarejestruj"

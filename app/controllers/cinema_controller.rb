@@ -11,6 +11,9 @@ class CinemaController < ApplicationController
     @showtime = Time.zone.at(params[:showtime].to_i)
   end
 
+  def register
+  end
+
   def buy_ticket
     @movie = Cinema::Movie.find(params[:movie_id])
     @order = Order.create(

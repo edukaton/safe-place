@@ -16,7 +16,7 @@ br
 
 h3 Wybór miejsc
 
-= form_tag "/buy_ticket" do
+= form_tag "/buy_ticket", id: "regform" do
   = hidden_field_tag "movie_id", @movie.id
   = hidden_field_tag "showtime", @showtime
   - rows = (1..20).map { |r| ["Rząd #{r}", r] }
@@ -25,4 +25,16 @@ h3 Wybór miejsc
   = select_tag "place", options_for_select(places)
   br
   br
-  = submit_tag "Kup bez rejestracji"
+  button#register Zarejestruj się dla 50% zniżki!
+  br
+  br
+  = submit_tag "Kontynuuj bez rejestracji"
+
+javascript:
+  var reg = document.getElementById('register');
+  var form = document.getElementById('regform');
+
+  reg.onclick = function() {
+    form.action = '/register';
+    form.submit();
+  }
