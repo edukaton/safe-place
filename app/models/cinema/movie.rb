@@ -6,7 +6,7 @@ module Cinema
 
     def image
       config = Cinema::TMDB.instance.configuration
-      image_base_url = config["images"]["base_url"]
+      image_base_url = config["images"]["secure_base_url"]
       [image_base_url, POSTER_SIZE, poster_path].join
     end
 
