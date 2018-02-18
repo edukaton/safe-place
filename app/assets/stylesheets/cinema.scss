@@ -1,0 +1,33 @@
+body {
+  background-color: #111;
+  color: white;
+}
+
+.logo {
+  color: #ffd00a;
+  text-align: center;
+}
+
+a {
+  color: white;
+  text-decoration: underline;
+}
+
+a.active {
+  color: #ffd00a;
+  text-decoration: none;
+}
+
+.days {
+  list-style-type: none;
+  text-align: center;
+}
+
+.days li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.movie {
+  width: 100%;
+}

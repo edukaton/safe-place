@@ -1,1 +1,1 @@
-Rails.application.config.assets.precompile += %w[search.css]
+Rails.application.config.assets.precompile += %w[cinema.css search.css]

@@ -1,17 +1,18 @@
-h1 Witamy w naszym kinie!
+h1.logo Kino Laguna
 
-h2 Teraz na ekranach
+h3 Repertuar
 
-ul
+ul.days
   - @days.each do |day|
-    li= link_to(l(day, format: :short), root_path(date: day))
+    - class_name = @date == day ? "active" : nil
+    li= link_to(l(day, format: :short), root_path(date: day), class: class_name)
 
-- @movies.each do |movie|
-  table
-    colgroup
-      col
-      col
-      col width=200
+table.movies
+  colgroup
+    col
+    col
+    col width=200
+  - @movies.each do |movie|
     tr
       td= image_tag(movie.image, alt: movie.title, width: 200)
       td
