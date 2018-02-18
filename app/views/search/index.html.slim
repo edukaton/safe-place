@@ -1,15 +1,24 @@
-h1 Wyszukiwajka
+.search-container
+  h1
+    span.search-title-red S
+    span.search-title-blue z
+    span.search-title-green u
+    span.search-title-yellow k
+    span.search-title-blue a
+    span.search-title-red j
 
-= form_tag "/", method: :get do
-  = text_field_tag "q", @query, id: "query"
+  = form_tag "/", method: :get do
+    = text_field_tag "q", @query, id: "query"
 
-- if @query.present? && @results.empty?
-  h2 Nie znaleziono wyników
-- else
-  - @results.each do |result|
-    div
-      h2= link_to(result.title, result.url)
-      p= result.description
+.results
+  - if @query.present? && @results.empty?
+    h3.no-results Brak wyników wyszukiwania
+  - else
+    - @results.each do |result|
+      div
+        h5= link_to(result.title, result.url)
+        span.link= result.url
+        p= result.description
 
 javascript:
   document.getElementById('query').focus();

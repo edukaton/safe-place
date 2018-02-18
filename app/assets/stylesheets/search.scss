@@ -1,0 +1,36 @@
+.search-container {
+  text-align: center;
+}
+
+.search-title-red {
+  color: #d62d20;
+}
+
+.search-title-green {
+  color: #008744;
+}
+
+.search-title-blue {
+  color: #0057e7;
+}
+
+.search-title-yellow {
+  color: #ffa700;
+}
+
+#query {
+  width: 100%;
+  max-width: 500px;
+}
+
+.no-results {
+  color: #666666;
+}
+
+.results {
+  margin-top: 40px;
+}
+
+.link {
+  color: #1B8D6E;
+}

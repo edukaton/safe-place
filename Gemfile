@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.5.0"
+
 gem "activerecord-import"
 gem "slim"
 gem 'jquery-rails'
@@ -10,7 +12,7 @@ gem "credy"
 gem "dry-validation"
 gem "rpg"
 gem "bootstrap"
-gem "dotenv-rails"
+gem "dotenv-rails", groups: [:development, :test]
 
 group :production do
 	gem "heroku-deflater"

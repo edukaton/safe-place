@@ -9,18 +9,18 @@ class DomainConstraints
 end
 
 Rails.application.routes.draw do
-  constraints DomainConstraints.new("szukaj.pl", "szkuaj.pl") do
+  constraints DomainConstraints.new(Domain.credible(:search), Domain.malicious(:search)) do
     get "/", to: "search#index"
   end
 
-  constraints DomainConstraints.new("kino.pl", "kyno.pl") do
+  constraints DomainConstraints.new(Domain.credible(:cinema), Domain.malicious(:cinema)) do
     get "/", to: "cinema#index"
     get "/movies/:movie_id/showtimes/:showtime", to: "cinema#showtime"
     post "/buy_ticket", to: "cinema#buy_ticket"
     get "/confirm_ticket/:id", to: "cinema#confirm_ticket"
   end
 
-  constraints DomainConstraints.new("gateway.com") do
+  constraints DomainConstraints.new(Domain.credible(:payments), Domain.malicious(:payments)) do
     get "/payment", to: "payments/gateway#payment"
     post "/payment", to: "payments/gateway#payment"
     get "/failure", to: "payments/gateway#failure"
