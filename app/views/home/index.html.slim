@@ -1,15 +1,15 @@
-h1 SafePlace
-
 - if logged_in?
   h2(style = "margin-bottom: 40px")
     = current_avatar.full_name
     = " (#{current_avatar.code})"
     = link_to "Wyloguj się", logout_path, method: :delete, data: { confirm: "Na pewno?" }, class: "right"
 
+  .alert.alert-secondary Witaj! W tym miejscu możesz zarządzać swoim kontem. Na start otrzymujesz od nas pieniądze, którymi możesz posługiwać się w grze. Dokonując płatności podczas realizacji zadań, wpisuj numer e-karty.
+
   .row
     .col-md
       p Twoje zadania
-      table
+      table.table.table-bordered.table-striped
         - @participations.each do |participation|
           tr
             td= participation.task.title
@@ -21,9 +21,9 @@ h1 SafePlace
             td= link_to "Przejdź do zadania", participation_path(participation.id)
     .col-sm
       p Twoje dane:
-      table
+      table.table.table-bordered.table-striped
         tr
-          td Adres
+          th scope="row" Adres
           td
             = current_avatar.address
             br
@@ -31,16 +31,16 @@ h1 SafePlace
             |, 
             = current_avatar.city
         tr
-          td Pesel
+          th scope="row" Pesel
           td= current_avatar.pesel
         tr
-          td Numer karty
+          th scope="row" Numer karty
           td= current_avatar.card_number
         tr
-          td Data ważności
+          th scope="row" Data ważności
           td #{sprintf("%02d", current_avatar.card_expire_month)} / #{current_avatar.card_expire_year}
         tr
-          td CVV
+          th scope="row" CVV
           td= current_avatar.card_cvv
 - else
   = link_to "Zaloguj się", login_path, class: "btn btn-primary", style: "margin-right: 10px"

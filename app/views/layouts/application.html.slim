@@ -8,8 +8,9 @@ html(lang = "pl")
     = stylesheet_link_tag "application"
     = csrf_meta_tags
   body
-    - if flash[:error].present?
-      .alert.alert-danger= flash[:error]
-    - if flash[:notice].present?
-      .alert.alert-success= flash[:notice]
-    = yield
+    .container
+      - if flash[:error].present?
+        .alert.alert-danger= flash[:error]
+      - if flash[:notice].present?
+        .alert.alert-success= flash[:notice]
+      = yield

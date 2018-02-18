@@ -22,7 +22,7 @@
 @import "bootstrap/images";
 @import "bootstrap/code";
 @import "bootstrap/grid";
-// @import "bootstrap/tables";
+@import "bootstrap/tables";
 @import "bootstrap/forms";
 @import "bootstrap/buttons";
 // @import "bootstrap/transitions";
@@ -36,7 +36,7 @@
 //@import "bootstrap/breadcrumb";
 //@import "bootstrap/pagination";
 @import "bootstrap/badge";
-//@import "bootstrap/jumbotron";
+@import "bootstrap/jumbotron";
 @import "bootstrap/alert";
 // @import "bootstrap/progress";
 // @import "bootstrap/media";
@@ -46,19 +46,11 @@
 // @import "bootstrap/tooltip";
 // @import "bootstrap/popover";
 // @import "bootstrap/carousel";
-// @import "bootstrap/utilities";
+@import "bootstrap/utilities";
 // @import "bootstrap/print";
 
 body {
-  width: 960px;
-  margin: 0 auto;
   padding-top: 40px;
-}
-
-@media (max-width: 768px) {
-  body {
-    width: 100%;
-  }
 }
 
 .error {
@@ -69,15 +61,6 @@ body {
  	float: right;
 }
 
-table {
-	border-collapse: collapse;
-}
-
-td {
- 	border: 1px solid gray;
- 	padding: 5px;
-}
-
 body.signin {
 	padding-top: 40px;
 }
@@ -86,9 +69,4 @@ body.signin {
 	width: 100%;
 	max-width: 330px;
 	margin: 0 auto;
-}
-
-.container {
-  width: 960px;
-  margin: 0 auto;
 }
