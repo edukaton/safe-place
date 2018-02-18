@@ -1,6 +1,8 @@
 class AvatarsController < ApplicationController
+  layout "sessions"
+
   def create
-    @schema = NewAvatarSchema.call(params)
+    @schema = NewAvatarSchema.call(params[:avatar])
 
     if @schema.success?
       @classroom = Classroom.find_by(code: @schema[:classroom_code])

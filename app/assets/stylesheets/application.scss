@@ -1,0 +1,88 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ */
+
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+@import "bootstrap/root";
+@import "bootstrap/reboot";
+@import "bootstrap/type";
+@import "bootstrap/images";
+@import "bootstrap/code";
+@import "bootstrap/grid";
+// @import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+// @import "bootstrap/transitions";
+//@import "bootstrap/dropdown";
+//@import "bootstrap/button-group";
+//@import "bootstrap/input-group";
+//@import "bootstrap/custom-forms";
+//@import "bootstrap/nav";
+//@import "bootstrap/navbar";
+//@import "bootstrap/card";
+//@import "bootstrap/breadcrumb";
+//@import "bootstrap/pagination";
+//@import "bootstrap/badge";
+//@import "bootstrap/jumbotron";
+// @import "bootstrap/alert";
+// @import "bootstrap/progress";
+// @import "bootstrap/media";
+// @import "bootstrap/list-group";
+// @import "bootstrap/close";
+// @import "bootstrap/modal";
+// @import "bootstrap/tooltip";
+// @import "bootstrap/popover";
+// @import "bootstrap/carousel";
+// @import "bootstrap/utilities";
+// @import "bootstrap/print";
+
+body {
+	width: 960px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.error {
+ 	border: 1px solid red;
+}
+
+.right {
+ 	float: right;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+td {
+ 	border: 1px solid gray;
+ 	padding: 5px;
+}
+
+body.signin {
+	padding-top: 40px;
+}
+
+.form-signin {
+	width: 100%;
+	max-width: 330px;
+	margin: 0 auto;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+}

@@ -1,9 +1,11 @@
 class SessionsController < ApplicationController
+  layout "sessions"
+
   def new
   end
 
   def create
-    @avatar = Avatar.find_by(code: params[:code])
+    @avatar = Avatar.find_by(code: params[:session][:code])
 
     if @avatar.present?
       cookies[:avatar_id] = @avatar.id

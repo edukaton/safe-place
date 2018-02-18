@@ -9,6 +9,7 @@ gem "simple_form"
 gem "credy"
 gem "dry-validation"
 gem "rpg"
+gem "bootstrap"
 
 group :production do
 	gem "heroku-deflater"

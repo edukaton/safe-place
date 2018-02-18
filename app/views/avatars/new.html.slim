@@ -1,13 +1,4 @@
-= form_tag avatars_path do
-  p
-    | Kod klasy
-    = text_field_tag :classroom_code
-  p
-    = radio_button_tag :gender, "male"
-    | Chłopak
-
-  p
-    = radio_button_tag :gender, "female"
-    | Dziewczyna
-
-  = submit_tag "Utwórz"
+= simple_form_for :avatar, url: avatars_path, html: { class: "form-signin" } do |f|
+  = f.input :classroom_code, as: :string, required: false, label: "Podaj kod klasy"
+  = f.input :gender, as: :radio_buttons, collection: [["Chłopak", "male"], ["Dziewczyna", "female"]], label: "", required: false
+  = f.submit "Dołącz do klasy", class: "btn btn-lg btn-primary"
