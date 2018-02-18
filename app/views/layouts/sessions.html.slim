@@ -7,7 +7,8 @@ html(lang = "pl")
     = javascript_include_tag "application"
     = stylesheet_link_tag "application"
     = csrf_meta_tags
-  body.text-center.signin
-    - if flash[:error].present?
-      p.error= flash[:error]
-    = yield
+  body
+    .container.text-center.mt-5
+      - if flash[:error].present?
+        p.error= flash[:error]
+      = yield

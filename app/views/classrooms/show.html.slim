@@ -1,12 +1,12 @@
 h1 Klasa #{@classroom.name}
 
-Twoja klasa jest gotowa. Podaj poniższy kod swoim uczniom
+p Twoja klasa jest gotowa. Podaj poniższy kod swoim uczniom:
 
-pre= @classroom.code
+.alert.alert-primary.h2.text-center= @classroom.code
 
 h2 Uczniowie
 
-table
+table.table.table-bordered.table-striped.mb-5
   thead
     tr
       th Uczeń
@@ -19,9 +19,6 @@ table
       td= participation.task.title
       td= participation.completed? ? "Zakończone" : "W trakcie"
       td= participation.status.nil? ? "n/a" : participation.status
-
-br
-br
 
 h2 Zagrożenia
 

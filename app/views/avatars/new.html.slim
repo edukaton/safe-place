@@ -1,4 +1,4 @@
-= simple_form_for :avatar, url: avatars_path, html: { class: "form-signin" } do |f|
+= simple_form_for :avatar, url: avatars_path do |f|
   = f.input :classroom_code, as: :string, required: false, label: "Podaj kod klasy"
   = f.input :gender, as: :radio_buttons, collection: [["Chłopak", "male"], ["Dziewczyna", "female"]], label: "", required: false
   = f.submit "Dołącz do klasy", class: "btn btn-lg btn-primary"

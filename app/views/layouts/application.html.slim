@@ -9,6 +9,8 @@ html(lang = "pl")
     = csrf_meta_tags
   body
     .container
+      nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-4.mt-4
+        a.navbar-brand href="/" SafePlace
       - if flash[:error].present?
         .alert.alert-danger= flash[:error]
       - if flash[:notice].present?

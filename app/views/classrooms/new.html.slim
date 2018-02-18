@@ -1,5 +1,7 @@
-p Utwórz nową klasę
+h1 Utwórz nową klasę
 
 = simple_form_for @classroom do |f|
-  = f.input :name
-  = f.submit "Stwórz"
+  .form-group
+    = f.label :name, "Nazwa klasy"
+    = f.input_field :name, class: "form-control"
+  = f.submit "Stwórz", class: "btn btn-primary btn-lg"

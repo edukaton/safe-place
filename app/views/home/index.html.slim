@@ -44,5 +44,8 @@
           th scope="row" CVV
           td= current_avatar.card_cvv
 - else
-  = link_to "Zaloguj się", login_path, class: "btn btn-primary", style: "margin-right: 10px"
-  = link_to "Dołącz do klasy", new_avatar_path, class: "btn btn-primary"
+  .text-center
+    = link_to "Zaloguj się", login_path, class: "btn btn-primary btn-lg ", style: "margin-right: 10px"
+    = link_to "Dołącz do klasy", new_avatar_path, class: "btn btn-primary btn-lg"
+    br
+    = link_to "lub utwórz nową klasę", new_classroom_path
