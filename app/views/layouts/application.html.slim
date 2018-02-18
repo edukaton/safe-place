@@ -9,7 +9,7 @@ html(lang = "pl")
     = csrf_meta_tags
   body
     - if flash[:error].present?
-      p.error= flash[:error]
+      .alert.alert-danger= flash[:error]
     - if flash[:notice].present?
-      p.notice= flash[:notice]
+      .alert.alert-success= flash[:notice]
     = yield
