@@ -4,9 +4,11 @@ class DomainConstraints
   end
 
   def matches?(request)
-    puts "Request domain: #{request.domain}"
-    puts "Domain constraint: #{@domains}"
-    request.domain.in?(@domains)
+    full_domain = [
+      request.subdomain,
+      request.domain
+    ].select(&:present?).join(".")
+    full_domain.in?(@domains)
   end
 end
 
