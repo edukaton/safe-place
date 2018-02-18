@@ -10,7 +10,7 @@ p
   | i zapłać za bilet.
 
 - unless @participation.completed?
-  = link_to("Rozpocznij zadanie", Domain.url(:credible, :search, "/"), class: "btn btn-primary btn-lg mb-3")
+  = link_to("Rozpocznij zadanie", Domain.url(:credible, :search, "/"), target: "_blank", class: "btn btn-primary btn-lg mb-3")
 
   h2 Zakończenie zadania
 
