@@ -8,6 +8,7 @@ html(lang = "pl")
     = stylesheet_link_tag "application"
     = csrf_meta_tags
   body
-    - if flash[:error].present?
-      p.error= flash[:error]
-    = yield
+    .container.mt-5
+      - if flash[:error].present?
+        p.error= flash[:error]
+      = yield

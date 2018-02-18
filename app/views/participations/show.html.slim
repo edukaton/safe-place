@@ -2,7 +2,12 @@ h1 Bilet do kina
 
 p= link_to "Powrót", root_path
 
-p Chesz się wybrać do kina ze znajomymi. Zarezerwuj dla siebie miejsce w kinie Laguna na film #{Cinema::Movie.popular.first.title} i zapłać za bilet.
+p
+  | Chesz się wybrać do kina ze znajomymi. Zarezerwuj dla siebie miejsce w kinie
+  strong  Laguna 
+  | na film
+  strong= " #{Cinema::Movie.popular.first.title} "
+  | i zapłać za bilet.
 
 - unless @participation.completed?
   = link_to("Rozpocznij zadanie", Domain.url(:credible, :search, "/"), class: "btn btn-primary btn-lg mb-3")
