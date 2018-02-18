@@ -1,13 +1,9 @@
 module Cinema
   class Movie < ActiveRecord::Base
-    POSTER_SIZE = "w500"
-
     scope :popular, -> { order(popularity: :desc) }
 
     def image
-      config = Cinema::TMDB.instance.configuration
-      image_base_url = config["images"]["secure_base_url"]
-      [image_base_url, POSTER_SIZE, poster_path].join
+      PosterConfig.instance.image_url(poster_path)
     end
 
     class << self
