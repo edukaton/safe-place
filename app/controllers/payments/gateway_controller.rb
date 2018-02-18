@@ -49,8 +49,6 @@ module Payments
           description: "Poprawka płatność"
         )
 
-
-
         redirect_to @schema[:success_url]
       else
         Event.create(

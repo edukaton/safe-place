@@ -21,6 +21,7 @@
             td= link_to "Przejdź do zadania", participation_path(participation.id)
     .col-sm
       p Twoje dane:
+
       table.table.table-bordered.table-striped
         tr
           th scope="row" Adres
@@ -35,7 +36,7 @@
           td= current_avatar.pesel
         tr
           th scope="row" Numer karty
-          td= current_avatar.card_number
+          td= format_card_number(current_avatar.card_number)
         tr
           th scope="row" Data ważności
           td #{sprintf("%02d", current_avatar.card_expire_month)} / #{current_avatar.card_expire_year}

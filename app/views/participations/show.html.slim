@@ -1,16 +1,46 @@
 h1 Bilet do kina
 
+p= link_to "Powrót", root_path
+
 p Chesz się wybrać do kina ze znajomymi. Zarezerwuj dla siebie miejsce w kinie Laguna na film #{Cinema::Movie.popular.first.title} i zapłać za bilet.
 
-= link_to("Rozpocznij zadanie", Domain.url(:credible, :search, "/"), class: "btn btn-primary btn-lg")
+- unless @participation.completed?
+  = link_to("Rozpocznij zadanie", Domain.url(:credible, :search, "/"), class: "btn btn-primary btn-lg mb-3")
 
-br
-br
+  h2 Zakończenie zadania
 
-h2 Zakończenie zadania
+  p Wpisz numer rejestracji zakupionego biletu.
 
-p Wpisz numer rejestracji zakupionego biletu.
+  = form_tag verify_participation_path, class: "form-inline" do
+    = text_field_tag "reference", "", placeholder: "Numer rezerwacji", class: "form-control mr-2"
+    = submit_tag "Zweryfikuj", class: "btn btn-primary"
+- else
+  span.badge.badge-success Zadanie zakończone
 
-= form_tag verify_participation_path, class: "form-inline" do
-  = text_field_tag "reference", "", placeholder: "Numer rezerwacji", class: "form-control mr-2"
-  = submit_tag "Zweryfikuj", class: "btn btn-primary"
+  h2 Lista zagrożeń
+
+  p Sprawdź listę zagrożeń, na które natknąłeś się podczas wykonywania zadania.
+
+  strong Przekierowanie na stronę bez domeny (IP)
+
+  p Czy sprawdziłeś uważnie nazwę strony kina, która wyświetla się w pasku przeglądarki? Coś z nią było nie w porządku - ciąg niejasnych znaków, który nie zmieścił się w okienku. To nie była prawdziwa strona - to nakładka, która miała przekierować cię potem do miejsca, w którym zostaną wyłudzone Twoje dane.
+
+  strong Brak SSL
+
+  p Nie wystarczy, by na stronie płatności była kłódka przy pasku przeglądarki.Powinny być tam trzy informacje na zielonym tle: symbol kłódki, słowo "Bezpieczna" oraz nazwa instytucji. W innym przypadku Twoje dane zostaną zaszyfrowane, ale nie masz gwarancji, do kogo trafią. Chyba nie chcesz płacić za coś, co nie istnieje.
+
+  strong Atak homoglifowy
+
+  p Pasek wyszukiwarki kryje wiele pułapek zastawionych na nieuważnych użytkowników. Wystarczy, że nie zauważysz jednej literki w adresie strony, a skutki mogą być tragiczne. Nie ważne, że strona, którą zapewne dobrze znasz, wygląda tak samo, jak ją zapamiętałeś/aś. To tylko pół prawdy. Wszystkie informacje, które wpiszesz na takiej podmienionej stronie, trafiają do osoby, która może je użyć przeciwko Tobie.
+
+  strong Komunikat, który pobudza skrajne emocje.
+
+  p Zastanawiasz się, dlaczego kliknąłeś/aś w link, przenoszący Cię do rejestracji na stronie kina? Otóż informacja skierowana do Ciebie pobudzała Twoje emocje, zachęcała do pośpiechu słowami “teraz, ilość biletów ograniczona”. Informacja wydawała się rzetelna, a tak naprawdę ktoś użył manipulacji językowej. Gdy bilety są tańsze, a nie najtańsze, użytkownikowi wydaje się, że korzysta z okazji i jest sprytny, a w rzeczywistości jest sterowany.
+
+  strong Strona pyta o zbyt wiele danych
+
+  p Wypełniając formularz rejestracji, podałeś numer PESEL. Co cię do tego skłoniło? Komunikat, że rejestracja jest dozwolona dla osób, które ukończyły 12 lat, miał uśpić Twoją czujność. Gwiazdki (wpis obowiązkowy) przy danych formularza, służyły przyspieszeniu Twoich decyzji. Pamiętaj - umer PESEL należy do danych wrażliwych. Nie wolno go podawać w internecie - ktoś może na jego podstawie nawet… wziąć kredyt, który Ty będziesz zmuszony spłacać.
+
+  strong Udzielenie zgód marketingowych
+
+  p Wypełniając formularz, nie zwróciłeś uwagi na to, że wszystkie pola przy udzielaniu zgód marketingowych były z automatu zaznaczone. W pośpiechu wyraziłeś zgodę nie tylko na przetwarzanie Twoich danych osobowych (w tym danych wrażliwych), jak również na przesyłanie na twój email niechcianego spamu a nawet pobranie dodatkowych opłat za realizację płatności, czy zmianę strony startowej na inną, zawierającą wirus. Uważaj, co zaznaczasz. 
