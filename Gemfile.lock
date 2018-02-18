@@ -49,6 +49,10 @@ GEM
     crass (1.0.3)
     credy (0.1.1)
       thor
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     dry-configurable (0.7.0)
       concurrent-ruby (~> 1.0)
     dry-container (0.6.0)
@@ -172,6 +176,7 @@ DEPENDENCIES
   activerecord-import
   bootstrap
   credy
+  dotenv-rails
   dry-validation
   heroku-deflater
   jquery-rails
