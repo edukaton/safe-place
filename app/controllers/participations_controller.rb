@@ -25,6 +25,6 @@ class ParticipationsController < ApplicationController
       flash[:error] = "Niepoprawny numer rezerwacji"
     end
 
-    redirect_to root_path
+    redirect_to participation_path(participation)
   end
 end

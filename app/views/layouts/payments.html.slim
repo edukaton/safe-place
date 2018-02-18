@@ -9,6 +9,8 @@ html(lang = "pl")
     = csrf_meta_tags
   body
     .container.mt-5
+      nav.navbar.navbar-expand-lg.navbar-dark.bg-primary.mb-4.mt-4
+        a.navbar-brand href="/" PaySafe
       - if flash[:error].present?
-        p.error= flash[:error]
+        .alert.alert-danger= flash[:error]
       = yield

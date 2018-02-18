@@ -24,7 +24,7 @@ module Payments
           find_by(
             first_name: first_name,
             last_name: last_name,
-            card_number: @schema[:card_number]
+            card_number: @schema[:card_number].gsub(/\s/, "")
           )
         order = Order.find_by(
           id: params[:payment][:order_id]

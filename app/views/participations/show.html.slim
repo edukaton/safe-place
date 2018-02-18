@@ -20,9 +20,12 @@ p
     = text_field_tag "reference", "", placeholder: "Numer rezerwacji", class: "form-control mr-2"
     = submit_tag "Zweryfikuj", class: "btn btn-primary"
 - else
-  span.badge.badge-success Zadanie zakończone
+  - if rand() > 0.5
+    .alert.alert-success Brawo! Wspaniale! Nie dałeś się oszukać. Co prawda nie zauważyłeś kilku pułapek, ale i tak możesz być z siebie dumny! Przejrzyj poniższą listę i zastanów się, jak w przyszłości mógłbyś tego uniknąć.
+  - else
+    .alert.alert-success Wspaniale! Jesteś mistrzem czujności! Nie pozwalasz sobą manipulować w sieci! Za odporność na perswazję oraz wyłapywanie oszustw w sieci otrzymujesz NAGRODĘ - 100 złotych!
 
-  h2 Lista zagrożeń
+  h2.mt-3 Lista zagrożeń
 
   p Sprawdź listę zagrożeń, na które natknąłeś się podczas wykonywania zadania.
 
