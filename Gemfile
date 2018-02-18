@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.5.0"
+
 gem "activerecord-import"
 gem "slim"
 gem 'jquery-rails'
