@@ -13,6 +13,8 @@ module Cinema
     class << self
       def import_tmdb
         movies = Cinema::TMDB.instance.movies["results"].map do |movie|
+          next if movie["poster_path"].nil?
+
           Movie.new(
             description: movie["overview"],
             id: movie["id"],
@@ -20,7 +22,7 @@ module Cinema
             popularity: movie["popularity"],
             title: movie["title"]
           )
-        end
+        end.compact
 
         Movie.import movies
       end

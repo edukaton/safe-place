@@ -16,10 +16,13 @@ Rails.application.routes.draw do
   constraints DomainConstraints.new("kino.pl", "kyno.pl") do
     get "/", to: "cinema#index"
     get "/movies/:movie_id/showtimes/:showtime", to: "cinema#showtime"
+    post "/buy_ticket", to: "cinema#buy_ticket"
+    get "/confirm_ticket/:id", to: "cinema#confirm_ticket"
   end
 
   constraints DomainConstraints.new("gateway.com") do
     get "/payment", to: "payments/gateway#payment"
+    post "/payment", to: "payments/gateway#payment"
     get "/failure", to: "payments/gateway#failure"
     post "/process_payment", to: "payments/gateway#process_payment"
   end

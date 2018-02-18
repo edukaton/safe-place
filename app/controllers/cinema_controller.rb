@@ -10,4 +10,18 @@ class CinemaController < ApplicationController
     @movie = Cinema::Movie.find(params[:movie_id])
     @showtime = Time.zone.at(params[:showtime].to_i)
   end
+
+  def buy_ticket
+    @movie = Cinema::Movie.find(params[:movie_id])
+    @order = Order.create(
+      movie_id: @movie.id,
+      reference: SecureRandom.alphanumeric,
+      paid: false,
+      amount: 3000
+    )
+  end
+
+  def confirm_ticket
+    @order = Order.find_by(id: params[:id])
+  end
 end

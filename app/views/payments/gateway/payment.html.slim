@@ -1,8 +1,10 @@
-| Zapłać #{@amount} zł
+| Zapłać #{@amount / 100.0} zł
 
 = simple_form_for :payment, url: "/process_payment" do |f|
   = f.input :success_url, as: :hidden, input_html: { value: @success_url }
   = f.input :failure_url, as: :hidden, input_html: { value: @failure_url }
+  = f.input :amount, as: :hidden, input_html: { value: @amount }
+  = f.input :order_id, as: :hidden, input_html: { value: @order_id }
   = f.input :full_name, label: "Imię i nazwisko posiadacza karty"
   = f.input :card_number, label: "Numer karty"
   = f.input :card_cvv, label: "Kod CVV"

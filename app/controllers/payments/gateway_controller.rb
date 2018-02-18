@@ -1,5 +1,6 @@
 module Payments
   class GatewayController < ApplicationController
+    skip_before_filter :verify_authenticity_token
     layout "payments"
 
     def payment
@@ -9,6 +10,7 @@ module Payments
         description: "Otwarcie strony płatności"
       )
       @amount = params[:amount]
+      @order_id = params[:order_id]
       @success_url = params[:success_url]
       @failure_url = params[:failure_url]
     end
@@ -24,6 +26,9 @@ module Payments
             last_name: last_name,
             card_number: @schema[:card_number]
           )
+        order = Order.find_by(
+          id: params[:payment][:order_id]
+        )
 
         if avatar.nil?
           Event.create(
@@ -37,11 +42,14 @@ module Payments
           return
         end
 
+        order.update_attributes(paid: true)
         Event.create(
           participation: current_participation,
           event_type: "payments/payment-processed",
           description: "Poprawka płatność"
         )
+
+
 
         redirect_to @schema[:success_url]
       else
