@@ -10,6 +10,7 @@ gem "credy"
 gem "dry-validation"
 gem "rpg"
 gem "bootstrap"
+gem "dotenv-rails", groups: [:development, :test]
 
 group :production do
 	gem "heroku-deflater"
