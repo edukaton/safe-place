@@ -1,0 +1,14 @@
+h1= @task.title
+
+= @task.description
+
+br
+br
+
+= form_tag verify_participation_path do
+  p
+    | Podaj numer rezerwacji
+    br
+    = text_field_tag "reference"
+  p
+    = submit_tag "Zweryfikuj"

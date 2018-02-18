@@ -31,6 +31,9 @@ Rails.application.routes.draw do
 
   resources :avatars
   resources :classrooms
+  resources :participations do
+    post :verify, on: :member
+  end
   resources :sessions
   resources :tasks
 

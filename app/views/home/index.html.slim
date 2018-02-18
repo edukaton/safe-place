@@ -35,7 +35,7 @@ h1 SafePlace
       tr
         td= participation.task.title
         td= participation.completed? ? "Zakończone" : "W trakcie"
-        td= link_to "Przejdź do zadania", task_path(participation.task.id)
+        td= link_to "Przejdź do zadania", participation_path(participation.id)
 - else
   = link_to "Zaloguj się", login_path, class: "btn btn-primary", style: "margin-right: 10px"
   = link_to "Dołącz do klasy", new_avatar_path, class: "btn btn-primary"

@@ -9,7 +9,7 @@ module Payments
         event_type: "payments/form-opened",
         description: "Otwarcie strony płatności"
       )
-      @amount = params[:amount]
+      @amount = params[:amount].to_i
       @order_id = params[:order_id]
       @success_url = params[:success_url]
       @failure_url = params[:failure_url]

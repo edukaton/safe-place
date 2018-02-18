@@ -10,4 +10,6 @@ html(lang = "pl")
   body
     - if flash[:error].present?
       p.error= flash[:error]
+    - if flash[:notice].present?
+      p.notice= flash[:notice]
     = yield
