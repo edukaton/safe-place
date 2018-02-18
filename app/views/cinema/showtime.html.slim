@@ -1,5 +1,18 @@
 h1= @movie.title
-h2= l(@showtime, format: :short)
+table
+  tr
+    td= image_tag(@movie.image, alt: @movie.title, height: 200)
+    td
+      p= @movie.description
+
+br
+br
+
+h3 Wybrany seans: 
+h4= l(@showtime, format: :short)
+
+br
+br
 
 h3 Wybór miejsc
 
