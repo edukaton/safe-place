@@ -9,7 +9,8 @@ module Payments
         description: "Otwarcie strony płatności"
       )
       @amount = params[:amount]
-      @redirect_link = params[:redirect_link]
+      @success_url = params[:success_url]
+      @failure_url = params[:failure_url]
     end
 
     def process_payment
@@ -31,7 +32,9 @@ module Payments
             description: "Niepoprawna płatność - błędne dane karty"
           )
 
-          redirect_to :failure
+          @failure_url = @schema[:failure_url]
+          render :failure
+          return
         end
 
         Event.create(
@@ -40,7 +43,7 @@ module Payments
           description: "Poprawka płatność"
         )
 
-        redirect_to @schema[:redirect_link]
+        redirect_to @schema[:success_url]
       else
         Event.create(
           participation: current_participation,
@@ -48,7 +51,9 @@ module Payments
           description: "Niepoprawna płatność - błędnie wypełniony formularz"
         )
 
-        redirect_to :failure
+        @failure_url = @schema[:failure_url]
+        render :failure
+        return
       end
     end
   end
