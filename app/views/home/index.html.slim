@@ -9,7 +9,7 @@ h1 SafePlace
   .row
     .col-md
       p Twoje zadania
-      table
+      table(style = "width: 100%")
         - @participations.each do |participation|
           tr
             td= participation.task.title
@@ -21,7 +21,7 @@ h1 SafePlace
             td= link_to "Przejdź do zadania", participation_path(participation.id)
     .col-sm
       p Twoje dane:
-      table
+      table(style = "width: 100%")
         tr
           td Adres
           td
@@ -35,7 +35,7 @@ h1 SafePlace
           td= current_avatar.pesel
         tr
           td Numer karty
-          td= current_avatar.card_number
+          td= format_card_number(current_avatar.card_number)
         tr
           td Data ważności
           td #{sprintf("%02d", current_avatar.card_expire_month)} / #{current_avatar.card_expire_year}

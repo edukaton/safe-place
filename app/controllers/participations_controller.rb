@@ -1,11 +1,19 @@
 class ParticipationsController < ApplicationController
   def show
     @participation = Participation.find(params[:id])
+    @participation.completed = true
     @task = @participation.task
   end
 
   def verify
     participation = Participation.find(params[:id])
+
+    if participation.completed?
+      flash[:error] = "Zadanie zostało już wcześniej ukończone"
+      redirect_to root_path
+      return
+    end
+
     order = Order.find_by(
       reference: params[:reference],
       paid: true

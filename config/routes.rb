@@ -43,6 +43,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :tasks
+
+    get "/clean" => "utils#clean"
   end
 
   get "/login" => "sessions#new", as: :login
