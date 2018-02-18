@@ -4,6 +4,8 @@ class DomainConstraints
   end
 
   def matches?(request)
+    puts "Request domain: #{request.domain}"
+    puts "Domain constraint: #{@domains}"
     request.domain.in?(@domains)
   end
 end
