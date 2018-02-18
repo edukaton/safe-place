@@ -1,0 +1,9 @@
+| Zapłać #{@amount} zł
+
+= simple_form_for :payment, url: "/process_payment" do |f|
+  = f.input :redirect_link, as: :hidden, input_html: { value: @redirect_link }
+  = f.input :full_name, label: "Imię i nazwisko posiadacza karty"
+  = f.input :card_number, label: "Numer karty"
+  = f.input :card_cvv, label: "Kod CVV"
+  = f.input :card_expire_date, label: "Data ważności"
+  = f.submit "Zapłać", class: "btn btn-primary"

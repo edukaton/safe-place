@@ -3,10 +3,17 @@ module Payments
     layout "payments"
 
     def payment
+      Event.create(
+        participation: current_participation,
+        event_type: "payments/form-opened",
+        description: "Otwarcie strony płatności"
+      )
+      @amount = params[:amount]
+      @redirect_link = params[:redirect_link]
     end
 
     def process_payment
-      @schema = ProcessPaymentSchema.call(params)
+      @schema = ProcessPaymentSchema.call(params[:payment])
 
       if @schema.success?
         first_name, last_name = @schema[:full_name].split(/\s+/)
@@ -18,19 +25,31 @@ module Payments
           )
 
         if avatar.nil?
+          Event.create(
+            participation: current_participation,
+            event_type: "payments/payment-failed",
+            description: "Niepoprawna płatność - błędne dane karty"
+          )
+
           redirect_to :failure
         end
 
-        redirect_to :success
+        Event.create(
+          participation: current_participation,
+          event_type: "payments/payment-processed",
+          description: "Poprawka płatność"
+        )
+
+        redirect_to @schema[:redirect_link]
       else
+        Event.create(
+          participation: current_participation,
+          event_type: "payments/payment-failed",
+          description: "Niepoprawna płatność - błędnie wypełniony formularz"
+        )
+
         redirect_to :failure
       end
-    end
-
-    def success
-    end
-
-    def failure
     end
   end
 end
