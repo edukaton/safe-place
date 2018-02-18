@@ -5,5 +5,9 @@ html(lang = "pl")
     meta content="text/html; charset=utf-8" http-equiv="Content-Type"
     meta name="viewport" content="width=device-width, initial-scale=1"
     = csrf_meta_tags
+    = javascript_include_tag "application"
+    = stylesheet_link_tag "application"
+    = stylesheet_link_tag "search"
+    = csrf_meta_tags
   body
     = yield

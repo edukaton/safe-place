@@ -50,9 +50,15 @@
 // @import "bootstrap/print";
 
 body {
-	width: 960px;
+  width: 960px;
   margin: 0 auto;
   padding-top: 40px;
+}
+
+@media (max-width: 768px) {
+  body {
+    width: 100%;
+  }
 }
 
 .error {
